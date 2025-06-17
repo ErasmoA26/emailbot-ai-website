@@ -1,4 +1,142 @@
-<!DOCTYPE html>
+// Demo functionality
+        function startDemo() {
+            // This function is now replaced by processEmail()
+            processEmail();
+        // Modal functions
+        function openDemo() {
+            // Analytics tracking
+            gtag('event', 'demo_modal_opened', {
+                'event_category': 'conversion',
+                'event_label': 'demo_request'
+            });
+            
+            document.getElementById('demoModal').style.display = 'block';
+        }
+
+        function closeDemo() {
+            document.getElementById('demoModal').style.display = 'none';
+        }
+
+        function openContact() {
+            // Analytics tracking
+            gtag('event', 'contact_modal_opened', {
+                'event_category': 'conversion',
+                'event_label': 'contact_request'
+            });
+            
+            document.getElementById('contactModal').style.display = 'block';
+        }
+
+        function closeContact() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        // Form submissions
+        function submitDemo(event) {
+            event.preventDefault();
+            
+            // Analytics tracking
+            gtag('event', 'demo_form_submitted', {
+                'event_category': 'conversion',
+                'event_label': 'demo_lead'
+            });
+            
+            // Show loading state
+            const submitBtn = event.target.querySelector('.form-submit');
+            submitBtn.textContent = '⚡ Creando il tuo account...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                const form = event.target;
+                form.innerHTML = `
+                    <div class="message success">
+                        🎉 <strong>Account creato con successo!</strong><br>
+                        Benvenuto in EmailBot AI! La rivoluzione email è iniziata.
+                        <br><br>
+                        <strong>I tuoi super-poteri email:</strong><br>
+                        ⚡ AI processing in tempo reale<br>
+                        🎯 Auto-categorizzazione intelligente<br>
+                        ✨ Response suggestions personalizzate<br>
+                        📊 Analytics avanzate<br>
+                        <br>
+                        <strong>Check your email per il link di attivazione!</strong>
+                    </div>
+                    <button class="btn-primary" onclick="closeDemo()">🚀 Inizia a Usare EmailBot AI</button>
+                `;
+                
+                // Track conversion
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL'
+                });
+                
+            }, 3000);
+        }
+
+        function submitContact(event) {
+            event.preventDefault();
+            
+            // Analytics tracking
+            gtag('event', 'contact_form_submitted', {
+                'event_category': 'conversion',
+                'event_label': 'consultation_lead'
+            });
+            
+            // Show loading state
+            const submitBtn = event.target.querySelector('.form-submit');
+            submitBtn.textContent = '📞 Programmando la tua consulenza...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                const form = event.target;
+                form.innerHTML = `
+                    <div class="message success">
+                        🎯 <strong>Consulenza prenotata!</strong><br>
+                        Il nostro AI Success Manager ti contatterà entro 1 ora.
+                        <br><br>
+                        <strong>La tua consulenza includerà:</strong><br>
+                        📈 Audit della tua email productivity<br>
+                        🎯 Strategia personalizzata<br>
+                        ⚡ Demo live su tue email reali<br>
+                        💰 Piano di risparmio tempo/costi<br>
+                        🚀 Onboarding white-glove<br>
+                        <br>
+                        <strong>Preparati a rivoluzionare il tuo workflow!</strong>
+                    </div>
+                    <button class="btn-primary" onclick="closeContact()">🎉 Perfetto!</button>
+                `;
+                
+                // Track conversion
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL'
+                });
+                
+            }, 2500);
+        }
+
+        function processEmail() {
+            // Analytics tracking
+            gtag('event', 'email_processed', {
+                'event_category': 'engagement',
+                'event_label': 'live_demo'
+            });
+            
+            // Show processing animation
+            const button = document.querySelector('.magic-button');
+            const originalText = button.textContent;
+            
+            button.textContent = '⚡ Processando...';
+            button.disabled = true;
+            
+            // Simulate AI processing
+            setTimeout(() => {
+                // Show results
+                const output = document.getElementById('processedOutput');
+                output.style.display = 'block';
+                
+                // Update button
+                button.textContent = '✨ Processato! Prova Gratis ✨<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -325,10 +463,141 @@
             margin-bottom: 6px;
         }
 
-        .demo-ai {
+        /* SMART PROCESSOR STYLES */
+        .smart-processor {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .processor-input {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .email-chaos {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .chaos-email {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .chaos-from {
+            color: #ff6b6b;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .chaos-subject {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .magic-button {
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .magic-button:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
+        }
+
+        .processor-output {
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ai-result {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .ai-priority {
+            background: linear-gradient(135deg, #ff4757, #ff6b6b);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 16px;
             font-size: 12px;
-            color: #ff0080;
-            font-style: italic;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .ai-actions {
+            margin-bottom: 12px;
+        }
+
+        .ai-action {
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+        }
+
+        .ai-magic {
+            color: #00d4ff;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .demo-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00d4ff, #ff0080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
         }
 
         /* CONTACT FORM */
@@ -803,56 +1072,75 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">
-                🚀 AI Revolution - Superiore a Mailbot.ai
+                ⚡ La Nuova Era dell'Email Intelligence
             </div>
             
             <h1 class="hero-title">
-                EmailBot AI<br>
-                Batte Tutti i Concorrenti
+                L'AI che Rivoluziona<br>
+                la Tua Produttività Email
             </h1>
             
             <p class="hero-subtitle">
-                L'unica AI che comprende davvero le tue email. 97.3% di precisione, 
-                velocità 10x superiore, risultati garantiti.
+                Da 100+ email caotiche al giorno a gestione perfetta in 30 secondi. 
+                L'intelligenza artificiale che trasforma ogni email in opportunità.
             </p>
             
             <div class="hero-buttons">
                 <a href="#demo" class="btn-primary" onclick="openDemo()">
-                    🚀 Prova Demo Gratis
+                    ⚡ Trasforma le Tue Email Ora
                 </a>
-                <a href="#contact" class="btn-secondary" onclick="openContact()">
-                    📞 Richiedi Consulenza
+                <a href="#features" class="btn-secondary">
+                    🎯 Scopri la Magia dell'AI
                 </a>
             </div>
 
+            <!-- SMART EMAIL PROCESSOR -->
             <div class="demo-container">
                 <div class="demo-header">
-                    <div class="demo-title">EmailBot AI Live Dashboard</div>
+                    <div class="demo-title">🧠 AI Email Processor - Live Demo</div>
                     <div class="demo-status"></div>
                 </div>
                 
-                <div class="demo-upload" onclick="startDemo()">
-                    <div class="demo-upload-text">Trascina qui le tue email o clicca per testare</div>
-                    <button class="demo-upload-button">🤖 Inizia Demo AI</button>
+                <div class="smart-processor">
+                    <div class="processor-input">
+                        <h4 style="color: #00d4ff; margin-bottom: 12px;">📥 Email Caotica in Arrivo:</h4>
+                        <div class="email-chaos">
+                            <div class="chaos-email">
+                                <span class="chaos-from">boss@company.com</span>
+                                <span class="chaos-subject">"URGENTE!!!! riunione domani budget Q4 serve report entro stasera conferma partecipazione grazie"</span>
+                            </div>
+                        </div>
+                        <button class="magic-button" onclick="processEmail()">
+                            ✨ Applica Magia AI ✨
+                        </button>
+                    </div>
+                    
+                    <div class="processor-output" id="processedOutput" style="display: none;">
+                        <h4 style="color: #00ff88; margin-bottom: 12px;">🎯 Risultato AI Intelligente:</h4>
+                        <div class="ai-result">
+                            <div class="ai-priority">🔥 PRIORITÀ ALTA</div>
+                            <div class="ai-actions">
+                                <div class="ai-action">📅 <strong>Azione:</strong> Aggiungi riunione Q4 a calendario (domani)</div>
+                                <div class="ai-action">📊 <strong>Task:</strong> Prepara report budget Q4 entro oggi</div>
+                                <div class="ai-action">✅ <strong>Risposta:</strong> "Confermo partecipazione. Report in arrivo entro le 18:00."</div>
+                            </div>
+                            <div class="ai-magic">⚡ <em>Processato in 0.03 secondi - Produttività +340%</em></div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="demo-results" id="demoResults">
-                    <div class="demo-email">
-                        <div class="demo-from">Marco Bianchi • CEO TechStart</div>
-                        <div class="demo-subject">Partnership strategica - Budget €100K approvato</div>
-                        <div class="demo-ai">🤖 AI: Lead CALDISSIMO • Priorità MASSIMA • Auto-response pronta</div>
+                <div class="demo-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">0.03s</div>
+                        <div class="stat-label">Processing Time</div>
                     </div>
-                    
-                    <div class="demo-email">
-                        <div class="demo-from">Anna Rossi • Marketing Director</div>
-                        <div class="demo-subject">Nuovo progetto Q2 - Timeline accelerata</div>
-                        <div class="demo-ai">🤖 AI: Opportunità upsell 85% • Delega a team • Call suggerita</div>
+                    <div class="stat-item">
+                        <div class="stat-number">97.8%</div>
+                        <div class="stat-label">Accuracy</div>
                     </div>
-                    
-                    <div class="demo-email">
-                        <div class="demo-from">Luca Verdi • Prospect Enterprise</div>
-                        <div class="demo-subject">Demo richiesta per 500+ dipendenti</div>
-                        <div class="demo-ai">🤖 AI: Enterprise lead • Auto-gestita • Demo programmata</div>
+                    <div class="stat-item">
+                        <div class="stat-number">340%</div>
+                        <div class="stat-label">Productivity Boost</div>
                     </div>
                 </div>
             </div>
@@ -867,19 +1155,15 @@
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <div class="pricing-title">Free Forever</div>
-                    <div class="pricing-price">€0<span style="font-size: 18px; color: rgba(255,255,255,0.6);">/mese</span></div>
+                    <div class="pricing-price">€0<span style="font-size: 18px; color: rgba(255,255,255,0.6);">/sempre</span></div>
                     <div class="pricing-features">
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
-                            <span>300 email processate/mese</span>
+                            <span>500 email processate/mese</span>
                         </div>
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
-                            <span>AI Response Suggestions</span>
-                        </div>
-                        <div class="pricing-feature">
-                            <span class="pricing-check">✓</span>
-                            <span>Email Categorization</span>
+                            <span>AI Smart Categorization</span>
                         </div>
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
@@ -887,28 +1171,39 @@
                         </div>
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
-                            <span>Dashboard Basic</span>
+                            <span>Basic Response Suggestions</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Email Analytics Dashboard</span>
                         </div>
                         <div class="pricing-feature" style="color: rgba(255,255,255,0.5);">
                             <span style="color: rgba(255,255,255,0.3);">✗</span>
                             <span>Auto-Response</span>
                         </div>
+                        <div class="pricing-feature" style="color: rgba(255,255,255,0.5);">
+                            <span style="color: rgba(255,255,255,0.3);">✗</span>
+                            <span>Team Features</span>
+                        </div>
                     </div>
-                    <button class="btn-primary" onclick="selectPlan('free')">Inizia Gratis</button>
+                    <button class="btn-primary" onclick="selectPlan('free')">🚀 Inizia Gratis Ora</button>
+                    <div style="margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.6);">
+                        ✅ Nessuna carta richiesta • ✅ Setup in 2 minuti
+                    </div>
                 </div>
 
                 <div class="pricing-card featured">
-                    <div class="pricing-badge">PIÙ POPOLARE</div>
-                    <div class="pricing-title">Professional</div>
-                    <div class="pricing-price">€19<span style="font-size: 18px; color: rgba(255,255,255,0.6);">/mese</span></div>
+                    <div class="pricing-badge">🔥 BEST VALUE</div>
+                    <div class="pricing-title">Pro</div>
+                    <div class="pricing-price">€15<span style="font-size: 18px; color: rgba(255,255,255,0.6);">/mese</span></div>
                     <div class="pricing-features">
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
-                            <span>5,000 email processate/mese</span>
+                            <span>10,000 email processate/mese</span>
                         </div>
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
-                            <span>Auto-Response Generation</span>
+                            <span>AI Auto-Response Generation</span>
                         </div>
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
@@ -920,7 +1215,11 @@
                         </div>
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
-                            <span>Advanced Analytics</span>
+                            <span>Advanced Analytics & Reports</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Team Collaboration (5 utenti)</span>
                         </div>
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
@@ -928,19 +1227,22 @@
                         </div>
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
-                            <span>Team Collaboration (3 utenti)</span>
+                            <span>Mobile App Access</span>
                         </div>
                     </div>
-                    <button class="btn-primary" onclick="selectPlan('professional')">Prova 14 Giorni Gratis</button>
+                    <button class="btn-primary" onclick="selectPlan('pro')">⚡ Prova 14 Giorni Gratis</button>
+                    <div style="margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.6);">
+                        💰 Risparmia €288/anno vs competitors
+                    </div>
                 </div>
 
                 <div class="pricing-card">
                     <div class="pricing-title">Business</div>
-                    <div class="pricing-price">€49<span style="font-size: 18px; color: rgba(255,255,255,0.6);">/mese</span></div>
+                    <div class="pricing-price">€39<span style="font-size: 18px; color: rgba(255,255,255,0.6);">/mese</span></div>
                     <div class="pricing-features">
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
-                            <span>25,000 email processate/mese</span>
+                            <span>Email illimitate</span>
                         </div>
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
@@ -948,7 +1250,7 @@
                         </div>
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
-                            <span>Custom Integrations API</span>
+                            <span>API Access & Integrations</span>
                         </div>
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
@@ -956,7 +1258,7 @@
                         </div>
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
-                            <span>24/7 Support</span>
+                            <span>24/7 Premium Support</span>
                         </div>
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
@@ -964,36 +1266,58 @@
                         </div>
                         <div class="pricing-feature">
                             <span class="pricing-check">✓</span>
-                            <span>Custom onboarding</span>
+                            <span>Custom Onboarding</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Advanced Security (SSO)</span>
                         </div>
                     </div>
-                    <button class="btn-primary" onclick="selectPlan('business')">Inizia Prova Gratuita</button>
+                    <button class="btn-primary" onclick="selectPlan('business')">🏢 Richiedi Demo Enterprise</button>
+                    <div style="margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.6);">
+                        📞 Consulenza personalizzata inclusa
+                    </div>
                 </div>
             </div>
 
             <!-- Pricing Comparison -->
             <div style="margin-top: 60px; text-align: center;">
-                <h3 style="color: #00d4ff; margin-bottom: 30px;">🔥 Confronto vs Concorrenti</h3>
-                <div style="background: rgba(255,255,255,0.05); padding: 24px; border-radius: 16px; max-width: 800px; margin: 0 auto;">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; text-align: center;">
+                <h3 style="color: #00d4ff; margin-bottom: 30px; font-size: 24px;">💥 Perché Scegliere Noi vs Competizione</h3>
+                <div style="background: rgba(255,255,255,0.05); padding: 32px; border-radius: 20px; max-width: 900px; margin: 0 auto;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; text-align: center; margin-bottom: 24px;">
                         <div>
-                            <strong style="color: #00d4ff;">EmailBot AI</strong><br>
-                            <span style="color: #00ff88;">€19/mese</span><br>
-                            <small>5,000 email + AI completa</small>
+                            <div style="background: linear-gradient(135deg, #00d4ff, #0080ff); padding: 16px; border-radius: 12px; margin-bottom: 12px;">
+                                <strong style="color: white; font-size: 18px;">EmailBot AI</strong><br>
+                                <span style="color: white; font-size: 24px; font-weight: 800;">€15/mese</span><br>
+                                <small style="color: rgba(255,255,255,0.8);">10,000 email + AI completa</small>
+                            </div>
+                            <div style="color: #00ff88; font-weight: 700; font-size: 14px;">⚡ 67% più veloce</div>
                         </div>
                         <div>
-                            <strong>Mailbot.ai</strong><br>
-                            <span style="color: #ff6b6b;">€39/mese</span><br>
-                            <small>1,000 email + features limitate</small>
+                            <div style="background: rgba(255, 107, 107, 0.2); padding: 16px; border-radius: 12px; margin-bottom: 12px; border: 1px solid rgba(255, 107, 107, 0.3);">
+                                <strong style="color: rgba(255,255,255,0.7);">Mailbot.ai</strong><br>
+                                <span style="color: #ff6b6b; font-size: 24px; font-weight: 800;">€49/mese</span><br>
+                                <small style="color: rgba(255,255,255,0.6);">5,000 email + limiti</small>
+                            </div>
+                            <div style="color: #ff6b6b; font-weight: 700; font-size: 14px;">🐌 Lento & costoso</div>
                         </div>
                         <div>
-                            <strong>Altri Competitor</strong><br>
-                            <span style="color: #ff6b6b;">€29-79/mese</span><br>
-                            <small>2,000-3,000 email</small>
+                            <div style="background: rgba(255, 255, 255, 0.05); padding: 16px; border-radius: 12px; margin-bottom: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                                <strong style="color: rgba(255,255,255,0.7);">Altri Tool</strong><br>
+                                <span style="color: rgba(255,255,255,0.5); font-size: 24px; font-weight: 800;">€25-89/mese</span><br>
+                                <small style="color: rgba(255,255,255,0.5);">2,000-5,000 email</small>
+                            </div>
+                            <div style="color: rgba(255,255,255,0.5); font-weight: 700; font-size: 14px;">❌ Features base</div>
                         </div>
                     </div>
-                    <div style="margin-top: 20px; color: #00ff88; font-weight: 700;">
-                        💰 Risparmia fino al 60% con performance superiori!
+                    
+                    <div style="background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1)); padding: 20px; border-radius: 16px; border: 1px solid rgba(0, 255, 136, 0.2);">
+                        <div style="color: #00ff88; font-weight: 800; font-size: 18px; margin-bottom: 8px;">
+                            💰 RISPARMI €594 ALL'ANNO + PERFORMANCE 3X SUPERIORI
+                        </div>
+                        <div style="color: rgba(255,255,255,0.8); font-size: 14px;">
+                            ✨ Stesso risultato, meno costi, più funzionalità, supporto migliore
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1311,148 +1635,37 @@
 
         // Demo functionality
         function startDemo() {
+            // This function is now replaced by processEmail()
+            processEmail();
+        }
+
+        function processEmail() {
             // Analytics tracking
-            gtag('event', 'demo_started', {
+            gtag('event', 'email_processed', {
                 'event_category': 'engagement',
-                'event_label': 'hero_demo'
+                'event_label': 'live_demo'
             });
             
-            // Show demo results with animation
-            const results = document.getElementById('demoResults');
-            results.style.display = 'block';
+            // Show processing animation
+            const button = document.querySelector('.magic-button');
+            const originalText = button.textContent;
             
-            // Animate emails appearing
-            const emails = results.querySelectorAll('.demo-email');
-            emails.forEach((email, index) => {
-                setTimeout(() => {
-                    email.style.opacity = '0';
-                    email.style.transform = 'translateY(20px)';
-                    email.style.transition = 'all 0.5s ease';
-                    setTimeout(() => {
-                        email.style.opacity = '1';
-                        email.style.transform = 'translateY(0)';
-                    }, 100);
-                }, index * 300);
-            });
+            button.textContent = '⚡ Processando...';
+            button.disabled = true;
             
-            // Change upload area
-            const uploadArea = document.querySelector('.demo-upload');
-            uploadArea.innerHTML = '<div style="color: #00ff88;"><strong>✅ Demo completata! Risultati elaborati dall\'AI</strong><br><small>Prova la versione completa per processare le tue email reali</small></div>';
-        }
-
-        // Modal functions
-        function openDemo() {
-            // Analytics tracking
-            gtag('event', 'demo_modal_opened', {
-                'event_category': 'conversion',
-                'event_label': 'demo_request'
-            });
-            
-            document.getElementById('demoModal').style.display = 'block';
-        }
-
-        function closeDemo() {
-            document.getElementById('demoModal').style.display = 'none';
-        }
-
-        function openContact() {
-            // Analytics tracking
-            gtag('event', 'contact_modal_opened', {
-                'event_category': 'conversion',
-                'event_label': 'contact_request'
-            });
-            
-            document.getElementById('contactModal').style.display = 'block';
-        }
-
-        function closeContact() {
-            document.getElementById('contactModal').style.display = 'none';
-        }
-
-        // Form submissions
-        function submitDemo(event) {
-            event.preventDefault();
-            
-            // Analytics tracking
-            gtag('event', 'demo_form_submitted', {
-                'event_category': 'conversion',
-                'event_label': 'demo_lead'
-            });
-            
-            // Get form data
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData);
-            
-            // Show loading state
-            const submitBtn = event.target.querySelector('.form-submit');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Processando...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission (replace with real endpoint)
+            // Simulate AI processing
             setTimeout(() => {
-                // Show success message
-                const form = event.target;
-                form.innerHTML = `
-                    <div class="message success">
-                        ✅ <strong>Demo richiesta con successo!</strong><br>
-                        Ti contatteremo entro 24 ore per programmare la tua demo personalizzata.
-                        <br><br>
-                        <strong>Prossimi passi:</strong><br>
-                        1. Riceverai un'email di conferma<br>
-                        2. Un nostro AI specialist ti contatterà<br>
-                        3. Demo personalizzata di 30 minuti<br>
-                    </div>
-                    <button class="btn-primary" onclick="closeDemo()">Chiudi</button>
-                `;
+                // Show results
+                const output = document.getElementById('processedOutput');
+                output.style.display = 'block';
                 
-                // Track conversion
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL'
-                });
+                // Update button
+                button.textContent = '✨ Processato! Prova Gratis ✨';
+                button.onclick = function() { openDemo(); };
+                button.disabled = false;
                 
-            }, 2000);
-        }
-
-        function submitContact(event) {
-            event.preventDefault();
-            
-            // Analytics tracking
-            gtag('event', 'contact_form_submitted', {
-                'event_category': 'conversion',
-                'event_label': 'consultation_lead'
-            });
-            
-            // Get form data
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData);
-            
-            // Show loading state
-            const submitBtn = event.target.querySelector('.form-submit');
-            submitBtn.textContent = 'Inviando...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission
-            setTimeout(() => {
-                const form = event.target;
-                form.innerHTML = `
-                    <div class="message success">
-                        📞 <strong>Richiesta inviata con successo!</strong><br>
-                        Il nostro team commerciale ti contatterà entro 2 ore lavorative.
-                        <br><br>
-                        <strong>Cosa aspettarti:</strong><br>
-                        1. Chiamata di qualificazione (15 min)<br>
-                        2. Proposta personalizzata<br>
-                        3. Demo tecnica approfondita<br>
-                        4. Onboarding assistito<br>
-                    </div>
-                    <button class="btn-primary" onclick="closeContact()">Chiudi</button>
-                `;
-                
-                // Track conversion
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL'
-                });
+                // Scroll to results
+                output.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 
             }, 2000);
         }
@@ -1468,11 +1681,12 @@
             // Show checkout process (simulate)
             if (plan === 'free') {
                 // Redirect to signup page
-                alert(`🎉 Piano GRATUITO selezionato!\n\n✅ 300 email/mese GRATIS per sempre\n✅ Nessuna carta di credito richiesta\n✅ Setup in 2 minuti\n\n(Demo: qui apriresti il form di registrazione)`);
+                alert(`🎉 Piano GRATUITO selezionato!\n\n✅ 500 email/mese GRATIS per sempre\n✅ Nessuna carta di credito richiesta\n✅ Setup in 2 minuti\n✅ Inizia subito a trasformare le tue email\n\n(Demo: qui apriresti il form di registrazione)`);
             } else if (plan === 'business') {
                 openContact();
+            } else if (plan === 'pro') {
+                alert(`⚡ Piano PRO selezionato!\n\n🔥 PROVA GRATUITA di 14 giorni\n✅ 10,000 email + AI completa\n✅ Cancella quando vuoi\n💰 Risparmia €594/anno vs competitors\n\n(Demo: qui apriresti Stripe Checkout con trial gratuito)`);
             } else {
-                // Redirect to payment page with trial
                 alert(`🚀 Piano ${plan.toUpperCase()} selezionato!\n\n✅ PROVA GRATUITA di 14 giorni\n✅ Nessun vincolo\n✅ Cancella quando vuoi\n\n(Demo: qui apriresti Stripe Checkout con trial gratuito)`);
             }
         }
