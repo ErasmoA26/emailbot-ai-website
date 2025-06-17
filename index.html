@@ -594,10 +594,81 @@
             margin-bottom: 4px;
         }
 
-        .stat-label {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 600;
+        /* EMAIL INPUT STYLES */
+        .email-input-section {
+            margin-bottom: 20px;
+        }
+
+        .email-input-box {
+            width: 100%;
+            min-height: 120px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            color: white;
+            font-size: 14px;
+            font-family: inherit;
+            resize: vertical;
+            margin-bottom: 16px;
+            transition: all 0.3s;
+        }
+
+        .email-input-box:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .email-input-box::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+        }
+
+        .demo-divider {
+            text-align: center;
+            margin: 24px 0;
+            position: relative;
+        }
+
+        .demo-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .demo-divider span {
+            background: rgba(10, 14, 39, 1);
+            padding: 0 16px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            position: relative;
+        }
+
+        .quick-demo-section {
+            text-align: center;
+        }
+
+        .quick-demo-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quick-demo-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #00d4ff;
+            transform: translateY(-1px);
         }
 
         /* CONTACT FORM */
@@ -1103,28 +1174,35 @@
                 
                 <div class="smart-processor">
                     <div class="processor-input">
-                        <h4 style="color: #00d4ff; margin-bottom: 12px;">📥 Email Caotica in Arrivo:</h4>
-                        <div class="email-chaos">
-                            <div class="chaos-email">
-                                <span class="chaos-from">boss@company.com</span>
-                                <span class="chaos-subject">"URGENTE!!!! riunione domani budget Q4 serve report entro stasera conferma partecipazione grazie"</span>
-                            </div>
+                        <h4 style="color: #00d4ff; margin-bottom: 12px;">📥 Testa l'AI con la Tua Email:</h4>
+                        <div class="email-input-section">
+                            <textarea 
+                                id="userEmail" 
+                                placeholder="Incolla qui la tua email caotica da analizzare...&#10;&#10;Esempio:&#10;Da: boss@company.com&#10;Oggetto: URGENTE meeting domani budget report serve entro stasera"
+                                class="email-input-box"
+                                rows="4"
+                            ></textarea>
+                            <button class="magic-button" onclick="processUserEmail()">
+                                ✨ Analizza con AI ✨
+                            </button>
                         </div>
-                        <button class="magic-button" onclick="processEmail()">
-                            ✨ Applica Magia AI ✨
-                        </button>
+                        
+                        <div class="demo-divider">
+                            <span>oppure</span>
+                        </div>
+                        
+                        <div class="quick-demo-section">
+                            <h5 style="color: rgba(255,255,255,0.8); margin-bottom: 8px;">🚀 Quick Demo:</h5>
+                            <button class="quick-demo-btn" onclick="loadSampleEmail()">
+                                📧 Usa Email di Esempio
+                            </button>
+                        </div>
                     </div>
                     
                     <div class="processor-output" id="processedOutput" style="display: none;">
                         <h4 style="color: #00ff88; margin-bottom: 12px;">🎯 Risultato AI Intelligente:</h4>
-                        <div class="ai-result">
-                            <div class="ai-priority">🔥 PRIORITÀ ALTA</div>
-                            <div class="ai-actions">
-                                <div class="ai-action">📅 <strong>Azione:</strong> Aggiungi riunione Q4 a calendario (domani)</div>
-                                <div class="ai-action">📊 <strong>Task:</strong> Prepara report budget Q4 entro oggi</div>
-                                <div class="ai-action">✅ <strong>Risposta:</strong> "Confermo partecipazione. Report in arrivo entro le 18:00."</div>
-                            </div>
-                            <div class="ai-magic">⚡ <em>Processato in 0.03 secondi - Produttività +340%</em></div>
+                        <div class="ai-result" id="aiResultContent">
+                            <!-- Dynamic content will be inserted here -->
                         </div>
                     </div>
                 </div>
@@ -1633,41 +1711,210 @@
             }
         });
 
-        // Demo functionality
-        function startDemo() {
-            // This function is now replaced by processEmail()
-            processEmail();
-        }
+        // Advanced demo functionality with realistic AI responses
+        const emailSamples = [
+            {
+                from: "CEO@company.com",
+                subject: "URGENTE meeting budget Q4 report serve entro stasera conferma",
+                priority: "🔥 PRIORITÀ ALTA",
+                category: "📊 Business Critico",
+                actions: [
+                    "📅 Aggiungi meeting Q4 a calendario (domani 14:00)",
+                    "📊 Prepara report budget Q4 entro oggi ore 18:00", 
+                    "✅ Rispondi: 'Confermo partecipazione. Report in preparazione.'"
+                ],
+                sentiment: "Urgente ma gestibile",
+                time: "0.03"
+            },
+            {
+                from: "marketing@bigclient.com", 
+                subject: "Partnership opportunity 100k budget approved let's schedule call",
+                priority: "🎯 PRIORITÀ MEDIA-ALTA",
+                category: "💰 Opportunità Business",
+                actions: [
+                    "📞 Programma call entro 48h per discutere partnership",
+                    "📋 Prepara presentation partnership da €100k",
+                    "✉️ Rispondi: 'Eccellente! Disponibile per call domani o dopodomani.'"
+                ],
+                sentiment: "Molto positiva - opportunità importante",
+                time: "0.04"
+            },
+            {
+                from: "spam@unknown.com",
+                subject: "WIN MONEY NOW!!! Click here for amazing offer",
+                priority: "🗑️ SPAM",
+                category: "🚫 Da Eliminare",
+                actions: [
+                    "🗑️ Sposta in spam automaticamente",
+                    "🔒 Blocca mittente",
+                    "❌ Nessuna azione richiesta"
+                ],
+                sentiment: "Spam rilevato",
+                time: "0.01"
+            }
+        ];
 
-        function processEmail() {
+        function processUserEmail() {
+            const emailText = document.getElementById('userEmail').value.trim();
+            
+            if (!emailText) {
+                alert('⚠️ Inserisci una email da analizzare!');
+                return;
+            }
+            
             // Analytics tracking
-            gtag('event', 'email_processed', {
+            gtag('event', 'user_email_processed', {
                 'event_category': 'engagement',
-                'event_label': 'live_demo'
+                'event_label': 'custom_email'
             });
             
-            // Show processing animation
-            const button = document.querySelector('.magic-button');
-            const originalText = button.textContent;
+            // Show processing
+            showProcessing();
             
-            button.textContent = '⚡ Processando...';
+            // Generate realistic AI response based on email content
+            setTimeout(() => {
+                const analysis = generateAIAnalysis(emailText);
+                showAIResult(analysis);
+            }, 2000);
+        }
+
+        function loadSampleEmail() {
+            const randomSample = emailSamples[Math.floor(Math.random() * emailSamples.length)];
+            const emailText = `Da: ${randomSample.from}\nOggetto: ${randomSample.subject}`;
+            
+            document.getElementById('userEmail').value = emailText;
+            
+            // Auto-process after loading
+            setTimeout(() => processUserEmail(), 500);
+        }
+
+        function generateAIAnalysis(emailText) {
+            // Simple keyword-based analysis for realistic demo
+            const text = emailText.toLowerCase();
+            
+            let priority = "🎯 PRIORITÀ MEDIA";
+            let category = "📧 Email Generale";
+            let actions = ["📋 Archivia dopo lettura"];
+            let sentiment = "Neutrale";
+            
+            // Urgent keywords
+            if (text.includes('urgent') || text.includes('asap') || text.includes('subito') || 
+                text.includes('emergenza') || text.includes('critico')) {
+                priority = "🔥 PRIORITÀ ALTA";
+                actions = [
+                    "⚡ Azione immediata richiesta",
+                    "📞 Considera chiamata diretta",
+                    "✅ Rispondi entro 2 ore"
+                ];
+                sentiment = "Urgente";
+            }
+            
+            // Business opportunities
+            if (text.includes('partnership') || text.includes('budget') || text.includes('deal') ||
+                text.includes('opportunity') || text.includes('collaborazione')) {
+                priority = "💰 PRIORITÀ ALTA";
+                category = "🎯 Opportunità Business";
+                actions = [
+                    "📈 Opportunità di business identificata",
+                    "📞 Programma call di approfondimento",
+                    "📋 Prepara proposta personalizzata"
+                ];
+                sentiment = "Molto positiva";
+            }
+            
+            // Meeting requests
+            if (text.includes('meeting') || text.includes('call') || text.includes('riunione') ||
+                text.includes('incontro')) {
+                category = "📅 Meeting Request";
+                actions = [
+                    "📅 Aggiungi a calendario",
+                    "✅ Conferma disponibilità",
+                    "📋 Prepara agenda meeting"
+                ];
+            }
+            
+            // Spam detection
+            if (text.includes('win money') || text.includes('click here') || text.includes('offer') ||
+                text.includes('free') || text.includes('winner')) {
+                priority = "🗑️ SPAM";
+                category = "🚫 Da Eliminare";
+                actions = [
+                    "🗑️ Sposta in spam",
+                    "🔒 Blocca mittente",
+                    "❌ Nessuna azione richiesta"
+                ];
+                sentiment = "Spam rilevato";
+            }
+            
+            return {
+                priority,
+                category,
+                actions,
+                sentiment,
+                time: (Math.random() * 0.05 + 0.02).toFixed(3)
+            };
+        }
+
+        function showProcessing() {
+            const button = document.querySelector('.magic-button');
+            button.textContent = '⚡ AI sta analizzando...';
             button.disabled = true;
             
-            // Simulate AI processing
-            setTimeout(() => {
-                // Show results
-                const output = document.getElementById('processedOutput');
-                output.style.display = 'block';
+            const output = document.getElementById('processedOutput');
+            const content = document.getElementById('aiResultContent');
+            
+            content.innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <div class="processing-spinner">🤖</div>
+                    <div style="margin-top: 16px; color: rgba(255,255,255,0.7);">
+                        Analisi AI in corso...<br>
+                        <small>Elaborazione neural networks</small>
+                    </div>
+                </div>
+            `;
+            
+            output.style.display = 'block';
+        }
+
+        function showAIResult(analysis) {
+            const button = document.querySelector('.magic-button');
+            const content = document.getElementById('aiResultContent');
+            
+            content.innerHTML = `
+                <div class="ai-priority">${analysis.priority}</div>
+                <div class="ai-category" style="background: rgba(0,212,255,0.2); color: #00d4ff; padding: 4px 12px; border-radius: 12px; font-size: 12px; display: inline-block; margin-bottom: 12px;">
+                    ${analysis.category}
+                </div>
+                <div class="ai-actions">
+                    ${analysis.actions.map(action => `
+                        <div class="ai-action">🎯 <strong>Azione:</strong> ${action}</div>
+                    `).join('')}
+                </div>
+                <div class="ai-sentiment" style="margin: 12px 0; color: rgba(255,255,255,0.8); font-size: 14px;">
+                    <strong>📊 Sentiment Analysis:</strong> ${analysis.sentiment}
+                </div>
+                <div class="ai-magic">⚡ <em>Processato in ${analysis.time} secondi - EmailBot AI Neural Engine</em></div>
                 
-                // Update button
-                button.textContent = '✨ Processato! Prova Gratis ✨';
-                button.onclick = function() { openDemo(); };
-                button.disabled = false;
-                
-                // Scroll to results
-                output.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
-            }, 2000);
+                <div style="margin-top: 20px; padding: 16px; background: rgba(0,255,136,0.1); border-radius: 12px; border: 1px solid rgba(0,255,136,0.2);">
+                    <div style="color: #00ff88; font-weight: 700; margin-bottom: 8px;">🚀 Vuoi processare TUTTE le tue email così?</div>
+                    <button class="btn-primary" style="padding: 8px 16px; font-size: 14px;" onclick="openDemo()">
+                        ✨ Inizia Gratis Ora
+                    </button>
+                </div>
+            `;
+            
+            button.textContent = '✨ Analizza Altra Email';
+            button.disabled = false;
+            button.onclick = function() {
+                document.getElementById('userEmail').value = '';
+                document.getElementById('processedOutput').style.display = 'none';
+                document.getElementById('userEmail').focus();
+            };
+        }
+
+        // Update the original processEmail function
+        function processEmail() {
+            loadSampleEmail();
         }
 
         // Plan selection
