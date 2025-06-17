@@ -5,6 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EmailBot AI - Intelligenza Artificiale Superiore per Email</title>
     <meta name="description" content="EmailBot AI - La piattaforma AI più avanzata per email. 97.3% precisione, 50ms latency, superiore a tutti i concorrenti.">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <!-- Hotjar Tracking -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:YOUR_HJID,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    
+    <!-- Facebook Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -186,9 +222,9 @@
             border-color: #00d4ff;
         }
 
-        /* DEMO */
+        /* FUNCTIONAL DEMO */
         .demo-container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -224,6 +260,46 @@
             50% { opacity: 0.5; }
         }
 
+        .demo-upload {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px dashed rgba(0, 212, 255, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .demo-upload:hover {
+            border-color: rgba(0, 212, 255, 0.6);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .demo-upload-text {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 12px;
+        }
+
+        .demo-upload-button {
+            background: linear-gradient(135deg, #00d4ff, #0080ff);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .demo-upload-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .demo-results {
+            display: none;
+        }
+
         .demo-email {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
@@ -253,6 +329,157 @@
             font-size: 12px;
             color: #ff0080;
             font-style: italic;
+        }
+
+        /* CONTACT FORM */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 600px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            background: linear-gradient(135deg, #00d4ff, #0080ff);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* PRICING SECTION */
+        .pricing {
+            padding: 80px 24px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .pricing-card.featured {
+            border-color: #00d4ff;
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #00d4ff, #0080ff);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .pricing-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .pricing-price {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00d4ff, #ff0080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 24px;
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        .pricing-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .pricing-check {
+            color: #00ff88;
+            font-weight: 700;
         }
 
         /* COMPARISON */
@@ -461,6 +688,42 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #0a0e27, #1a1f3a);
+            margin: 5% auto;
+            padding: 32px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-close {
+            color: rgba(255, 255, 255, 0.7);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: #00d4ff;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .nav-links {
@@ -492,6 +755,30 @@
             .stats-container {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* SUCCESS/ERROR MESSAGES */
+        .message {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .message.success {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10b981;
+        }
+
+        .message.error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
         }
     </style>
 </head>
@@ -505,9 +792,9 @@
             </div>
             <div class="nav-links">
                 <a href="#features" class="nav-link">Funzionalità</a>
-                <a href="#comparison" class="nav-link">vs Concorrenza</a>
                 <a href="#pricing" class="nav-link">Prezzi</a>
-                <a href="#demo" class="nav-cta">Prova Gratis</a>
+                <a href="#comparison" class="nav-link">vs Concorrenza</a>
+                <a href="#demo" class="nav-cta" onclick="openDemo()">Prova Demo</a>
             </div>
         </div>
     </nav>
@@ -530,11 +817,11 @@
             </p>
             
             <div class="hero-buttons">
-                <a href="#demo" class="btn-primary">
-                    🚀 Prova Gratis 14 Giorni
+                <a href="#demo" class="btn-primary" onclick="openDemo()">
+                    🚀 Prova Demo Gratis
                 </a>
-                <a href="#comparison" class="btn-secondary">
-                    📊 Vedi il Confronto
+                <a href="#contact" class="btn-secondary" onclick="openContact()">
+                    📞 Richiedi Consulenza
                 </a>
             </div>
 
@@ -544,22 +831,131 @@
                     <div class="demo-status"></div>
                 </div>
                 
-                <div class="demo-email">
-                    <div class="demo-from">Marco Bianchi • CEO TechStart</div>
-                    <div class="demo-subject">Partnership strategica - Budget €100K approvato</div>
-                    <div class="demo-ai">🤖 AI: Lead CALDISSIMO • Priorità MASSIMA • Auto-response pronta</div>
+                <div class="demo-upload" onclick="startDemo()">
+                    <div class="demo-upload-text">Trascina qui le tue email o clicca per testare</div>
+                    <button class="demo-upload-button">🤖 Inizia Demo AI</button>
                 </div>
                 
-                <div class="demo-email">
-                    <div class="demo-from">Anna Rossi • Marketing Director</div>
-                    <div class="demo-subject">Nuovo progetto Q2 - Timeline accelerata</div>
-                    <div class="demo-ai">🤖 AI: Opportunità upsell 85% • Delega a team • Call suggerita</div>
+                <div class="demo-results" id="demoResults">
+                    <div class="demo-email">
+                        <div class="demo-from">Marco Bianchi • CEO TechStart</div>
+                        <div class="demo-subject">Partnership strategica - Budget €100K approvato</div>
+                        <div class="demo-ai">🤖 AI: Lead CALDISSIMO • Priorità MASSIMA • Auto-response pronta</div>
+                    </div>
+                    
+                    <div class="demo-email">
+                        <div class="demo-from">Anna Rossi • Marketing Director</div>
+                        <div class="demo-subject">Nuovo progetto Q2 - Timeline accelerata</div>
+                        <div class="demo-ai">🤖 AI: Opportunità upsell 85% • Delega a team • Call suggerita</div>
+                    </div>
+                    
+                    <div class="demo-email">
+                        <div class="demo-from">Luca Verdi • Prospect Enterprise</div>
+                        <div class="demo-subject">Demo richiesta per 500+ dipendenti</div>
+                        <div class="demo-ai">🤖 AI: Enterprise lead • Auto-gestita • Demo programmata</div>
+                    </div>
                 </div>
-                
-                <div class="demo-email">
-                    <div class="demo-from">Luca Verdi • Prospect Enterprise</div>
-                    <div class="demo-subject">Demo richiesta per 500+ dipendenti</div>
-                    <div class="demo-ai">🤖 AI: Enterprise lead • Auto-gestita • Demo programmata</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <div class="pricing-container">
+            <h2 class="section-title">Prezzi Trasparenti</h2>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-title">Starter</div>
+                    <div class="pricing-price">€49<span style="font-size: 18px; color: rgba(255,255,255,0.6);">/mese</span></div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>1,000 email processate/mese</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>AI Response Suggestions</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Email Categorization</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Priority Detection</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Dashboard Basic</span>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="selectPlan('starter')">Inizia Ora</button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">PIÙ POPOLARE</div>
+                    <div class="pricing-title">Professional</div>
+                    <div class="pricing-price">€149<span style="font-size: 18px; color: rgba(255,255,255,0.6);">/mese</span></div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>10,000 email processate/mese</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Auto-Response Generation</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Custom AI Training</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Team Collaboration</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Advanced Analytics</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Priority Support</span>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="selectPlan('professional')">Inizia Ora</button>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-title">Enterprise</div>
+                    <div class="pricing-price">€499<span style="font-size: 18px; color: rgba(255,255,255,0.6);">/mese</span></div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Email illimitate</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>White-label Solution</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Custom Integrations</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Dedicated AI Model</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>24/7 Support</span>
+                        </div>
+                        <div class="pricing-feature">
+                            <span class="pricing-check">✓</span>
+                            <span>Custom Setup</span>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="selectPlan('enterprise')">Contatta Sales</button>
                 </div>
             </div>
         </div>
@@ -706,10 +1102,10 @@
         <h2>Pronto per l'AI Superiore?</h2>
         <p>Più di 15,000 aziende hanno già scelto EmailBot AI invece della concorrenza.</p>
         <div class="hero-buttons">
-            <a href="#demo" class="btn-primary">
+            <a href="#demo" class="btn-primary" onclick="openDemo()">
                 🚀 Inizia Gratis Ora
             </a>
-            <a href="#contact" class="btn-secondary">
+            <a href="#contact" class="btn-secondary" onclick="openContact()">
                 📞 Demo Enterprise
             </a>
         </div>
@@ -736,7 +1132,7 @@
                 <a href="#about">Chi Siamo</a>
                 <a href="#careers">Lavora con Noi</a>
                 <a href="#press">Stampa</a>
-                <a href="#contact">Contatti</a>
+                <a href="#contact" onclick="openContact()">Contatti</a>
             </div>
             <div class="footer-section">
                 <h3>Risorse</h3>
@@ -750,6 +1146,105 @@
             <p>&copy; 2024 EmailBot AI. Tutti i diritti riservati.</p>
         </div>
     </footer>
+
+    <!-- DEMO MODAL -->
+    <div id="demoModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeDemo()">&times;</span>
+            <h2 style="color: #00d4ff; margin-bottom: 20px;">🤖 Demo EmailBot AI</h2>
+            
+            <div class="contact-form">
+                <form id="demoForm" onsubmit="submitDemo(event)">
+                    <div class="form-group">
+                        <label class="form-label">Nome Completo *</label>
+                        <input type="text" class="form-input" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email Aziendale *</label>
+                        <input type="email" class="form-input" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Azienda *</label>
+                        <input type="text" class="form-input" name="company" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Volume Email Mensile *</label>
+                        <select class="form-input" name="volume" required>
+                            <option value="">Seleziona volume</option>
+                            <option value="<1000">&lt; 1,000 email/mese</option>
+                            <option value="1000-5000">1,000 - 5,000 email/mese</option>
+                            <option value="5000-20000">5,000 - 20,000 email/mese</option>
+                            <option value=">20000">&gt; 20,000 email/mese</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Principali Sfide Email</label>
+                        <textarea class="form-input form-textarea" name="challenges" placeholder="Descrivi le tue principali sfide con la gestione email..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">
+                        🚀 Accedi alla Demo Personalizzata
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT MODAL -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeContact()">&times;</span>
+            <h2 style="color: #00d4ff; margin-bottom: 20px;">📞 Richiedi Consulenza</h2>
+            
+            <div class="contact-form">
+                <form id="contactForm" onsubmit="submitContact(event)">
+                    <div class="form-group">
+                        <label class="form-label">Nome e Cognome *</label>
+                        <input type="text" class="form-input" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-input" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Telefono</label>
+                        <input type="tel" class="form-input" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Azienda *</label>
+                        <input type="text" class="form-input" name="company" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Piano di Interesse</label>
+                        <select class="form-input" name="plan">
+                            <option value="">Seleziona piano</option>
+                            <option value="starter">Starter - €49/mese</option>
+                            <option value="professional">Professional - €149/mese</option>
+                            <option value="enterprise">Enterprise - €499/mese</option>
+                            <option value="custom">Soluzione Custom</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Messaggio</label>
+                        <textarea class="form-input form-textarea" name="message" placeholder="Raccontaci del tuo progetto e come possiamo aiutarti..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">
+                        📞 Richiedi Consulenza Gratuita
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Smooth scrolling
@@ -774,6 +1269,222 @@
                 navbar.style.background = 'rgba(10, 14, 39, 0.95)';
             }
         });
+
+        // Demo functionality
+        function startDemo() {
+            // Analytics tracking
+            gtag('event', 'demo_started', {
+                'event_category': 'engagement',
+                'event_label': 'hero_demo'
+            });
+            
+            // Show demo results with animation
+            const results = document.getElementById('demoResults');
+            results.style.display = 'block';
+            
+            // Animate emails appearing
+            const emails = results.querySelectorAll('.demo-email');
+            emails.forEach((email, index) => {
+                setTimeout(() => {
+                    email.style.opacity = '0';
+                    email.style.transform = 'translateY(20px)';
+                    email.style.transition = 'all 0.5s ease';
+                    setTimeout(() => {
+                        email.style.opacity = '1';
+                        email.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 300);
+            });
+            
+            // Change upload area
+            const uploadArea = document.querySelector('.demo-upload');
+            uploadArea.innerHTML = '<div style="color: #00ff88;"><strong>✅ Demo completata! Risultati elaborati dall\'AI</strong><br><small>Prova la versione completa per processare le tue email reali</small></div>';
+        }
+
+        // Modal functions
+        function openDemo() {
+            // Analytics tracking
+            gtag('event', 'demo_modal_opened', {
+                'event_category': 'conversion',
+                'event_label': 'demo_request'
+            });
+            
+            document.getElementById('demoModal').style.display = 'block';
+        }
+
+        function closeDemo() {
+            document.getElementById('demoModal').style.display = 'none';
+        }
+
+        function openContact() {
+            // Analytics tracking
+            gtag('event', 'contact_modal_opened', {
+                'event_category': 'conversion',
+                'event_label': 'contact_request'
+            });
+            
+            document.getElementById('contactModal').style.display = 'block';
+        }
+
+        function closeContact() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        // Form submissions
+        function submitDemo(event) {
+            event.preventDefault();
+            
+            // Analytics tracking
+            gtag('event', 'demo_form_submitted', {
+                'event_category': 'conversion',
+                'event_label': 'demo_lead'
+            });
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Show loading state
+            const submitBtn = event.target.querySelector('.form-submit');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Processando...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (replace with real endpoint)
+            setTimeout(() => {
+                // Show success message
+                const form = event.target;
+                form.innerHTML = `
+                    <div class="message success">
+                        ✅ <strong>Demo richiesta con successo!</strong><br>
+                        Ti contatteremo entro 24 ore per programmare la tua demo personalizzata.
+                        <br><br>
+                        <strong>Prossimi passi:</strong><br>
+                        1. Riceverai un'email di conferma<br>
+                        2. Un nostro AI specialist ti contatterà<br>
+                        3. Demo personalizzata di 30 minuti<br>
+                    </div>
+                    <button class="btn-primary" onclick="closeDemo()">Chiudi</button>
+                `;
+                
+                // Track conversion
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL'
+                });
+                
+            }, 2000);
+        }
+
+        function submitContact(event) {
+            event.preventDefault();
+            
+            // Analytics tracking
+            gtag('event', 'contact_form_submitted', {
+                'event_category': 'conversion',
+                'event_label': 'consultation_lead'
+            });
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Show loading state
+            const submitBtn = event.target.querySelector('.form-submit');
+            submitBtn.textContent = 'Inviando...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                const form = event.target;
+                form.innerHTML = `
+                    <div class="message success">
+                        📞 <strong>Richiesta inviata con successo!</strong><br>
+                        Il nostro team commerciale ti contatterà entro 2 ore lavorative.
+                        <br><br>
+                        <strong>Cosa aspettarti:</strong><br>
+                        1. Chiamata di qualificazione (15 min)<br>
+                        2. Proposta personalizzata<br>
+                        3. Demo tecnica approfondita<br>
+                        4. Onboarding assistito<br>
+                    </div>
+                    <button class="btn-primary" onclick="closeContact()">Chiudi</button>
+                `;
+                
+                // Track conversion
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL'
+                });
+                
+            }, 2000);
+        }
+
+        // Plan selection
+        function selectPlan(plan) {
+            // Analytics tracking
+            gtag('event', 'plan_selected', {
+                'event_category': 'conversion',
+                'event_label': plan
+            });
+            
+            // Show checkout process (simulate)
+            if (plan === 'enterprise') {
+                openContact();
+            } else {
+                // Redirect to payment page (replace with real Stripe checkout)
+                alert(`🚀 Procedendo con il piano ${plan.toUpperCase()}!\n\n(Questa è una demo - qui integreresti Stripe Checkout)`);
+            }
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const demoModal = document.getElementById('demoModal');
+            const contactModal = document.getElementById('contactModal');
+            
+            if (event.target === demoModal) {
+                closeDemo();
+            }
+            if (event.target === contactModal) {
+                closeContact();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeDemo();
+                closeContact();
+            }
+        });
+
+        // Page load analytics
+        gtag('event', 'page_view', {
+            'page_title': 'EmailBot AI - Homepage',
+            'page_location': window.location.href
+        });
+
+        // Scroll tracking
+        let scrollTracked = false;
+        window.addEventListener('scroll', function() {
+            if (!scrollTracked && window.scrollY > window.innerHeight * 0.5) {
+                gtag('event', 'scroll_50_percent', {
+                    'event_category': 'engagement'
+                });
+                scrollTracked = true;
+            }
+        });
+    </script>
+
+    <!-- Tawk.to Live Chat (replace YOUR_PROPERTY_ID) -->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/YOUR_PROPERTY_ID/1hqr5qj4k';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
     </script>
 </body>
 </html>
